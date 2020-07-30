@@ -23,6 +23,7 @@ import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.InnerClass;
 import org.mybatis.generator.api.dom.java.InnerEnum;
+import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.api.dom.xml.XmlElement;
@@ -92,6 +93,9 @@ public interface CommentGenerator {
     void addModelClassComment(TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable);
 
+    void addMapperClassComment(Interface mapperInterface,
+            IntrospectedTable introspectedTable);
+    
     /**
      * Adds the inner class comment.
      *
