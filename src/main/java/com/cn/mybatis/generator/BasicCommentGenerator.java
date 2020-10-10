@@ -61,7 +61,7 @@ public class BasicCommentGenerator implements CommentGenerator {
         suppressAllComments = false;
         addRemarkComments = false;
         
-        classCommentAuthor = "default";
+        classCommentAuthor = System.getenv("USERNAME");
         classCommentVersion = "1.0";
     }
 
@@ -131,9 +131,12 @@ public class BasicCommentGenerator implements CommentGenerator {
         if (StringUtility.stringHasValue(dateFormatString)) {
             dateFormat = new SimpleDateFormat(dateFormatString);
         }
-        
-        classCommentAuthor = properties.getProperty("classCommentAuthor");
-        classCommentVersion = properties.getProperty("classCommentVersion");
+        if (StringUtility.stringHasValue(properties.getProperty("classCommentAuthor"))) {
+        	classCommentAuthor = properties.getProperty("classCommentAuthor");
+        }
+        if (StringUtility.stringHasValue(properties.getProperty("classCommentVersion"))) {
+        	classCommentVersion = properties.getProperty("classCommentVersion");
+        }
     }
 
        public static boolean isTrue(String s) {
@@ -351,7 +354,7 @@ public class BasicCommentGenerator implements CommentGenerator {
         for (Parameter parameter : parameters) {
             sb.append(" *@param  ");
             sb.append(parameter.getName());
-            sb.append(".");
+//            sb.append(".");
             method.addJavaDocLine(sb.toString());
             sb.delete(0, sb.length());
         }
@@ -430,7 +433,7 @@ public class BasicCommentGenerator implements CommentGenerator {
             sb.append(" * @param "); //$NON-NLS-1$
             sb.append(parameter.getName());
             sb.append((introspectedColumn.getRemarks()==null ? " " : "  "+introspectedColumn.getRemarks()));
-            sb.append(".");
+//            sb.append(".");
             method.addJavaDocLine(sb.toString());
         }
         
