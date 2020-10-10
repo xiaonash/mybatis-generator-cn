@@ -15,8 +15,11 @@
     <classPathEntry location="${classPathEntry}"/> -->
 
     <context id="OracleTables" targetRuntime="MyBatis3" defaultModelType="flat">
-		<property name="javaFileEncoding" value="UTF-8"/>
-		
+<!--     
+        <plugin type="com.itfsw.mybatis.generator.plugins.CommentPlugin">
+            <property name="template" value="src/main/resources/test-comment.ftl"/>
+        </plugin>
+         -->
         <commentGenerator type="com.cn.mybatis.generator.BasicCommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="false"/>

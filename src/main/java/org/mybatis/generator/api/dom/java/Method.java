@@ -181,6 +181,8 @@ public class Method extends JavaElement {
                 sb.append("static "); //$NON-NLS-1$
             } else if (isDefault()) {
                 sb.append("default "); //$NON-NLS-1$
+            } else {
+            	sb.append(getVisibility().getValue());
             }
         } else {
             sb.append(getVisibility().getValue());
